@@ -24,6 +24,19 @@ body {
     pointer-events: none;
 }
 
+#background-zoom {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    transform-origin: center;
+    transition: transform 0.5s ease-out;
+    pointer-events: none;
+    z-index: -1;
+}
+
 #grid-pattern {
     background-image: 
         linear-gradient(to right, rgba(31, 41, 55, 0.05) 1px, transparent 1px), 

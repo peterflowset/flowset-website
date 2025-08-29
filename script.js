@@ -1,11 +1,23 @@
-// Spotlight Mouse Follow Logic
+// Spotlight and Zoom Effect
 const spotlight = document.getElementById('spotlight');
-if (spotlight) { 
-    window.addEventListener('mousemove', (e) => { 
-        window.requestAnimationFrame(() => { 
-            spotlight.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`; 
-        }); 
-    }); 
+const backgroundZoom = document.getElementById('background-zoom');
+
+if (spotlight && backgroundZoom) {
+    window.addEventListener('mousemove', (e) => {
+        window.requestAnimationFrame(() => {
+            const x = e.clientX;
+            const y = e.clientY;
+            
+            // Spotlight movement
+            spotlight.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
+            
+            // Background zoom effect
+            const scale = 1.03;
+            const offsetX = (window.innerWidth/2 - x) * 0.01;
+            const offsetY = (window.innerHeight/2 - y) * 0.01;
+            backgroundZoom.style.transform = `scale(${scale}) translate(${offsetX}px, ${offsetY}px)`;
+        });
+    });
 }
 
 // Button Glow Effect
