@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>KI Agentur Südtirol | Künstliche Intelligenz, Automatisierung & Digitalisierung</title>
-    <script type="text/javascript" src="//embeds.iubenda.com/widgets/94e52fbf-8d4a-4481-bd84-64be34457158.js"></script>
-    <meta name="description" content="Flowset ist Ihre KI Agentur in Südtirol. Wir automatisieren Prozesse, digitalisieren Unternehmen und steigern Effizienz mit maßgeschneiderten KI-Lösungen.">
+    <title>Cold Outreach Systems | Mehr Kunden für Ihre Marketing Agentur</title>
+<script type="text/javascript" src="//embeds.iubenda.com/widgets/94e52fbf-8d4a-4481-bd84-64be34457158.js"></script>
+    <meta name="description" content="Wir bauen skalierbare Cold Outreach Systeme, die Marketing Agenturen dabei helfen, planbar und automatisiert qualifizierte Kundenanfragen zu generieren.">
 
     <link rel="icon" type="image/png" href="logos/icon.png">
-    <link rel="stylesheet" href="styles.css">
 
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -26,18 +25,164 @@
     </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="script.js" defer></script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom Styles & Tailwind Config */
+        :root {
+            --glow-color: rgba(49, 107, 255, 0.5); /* Adjusted glow to match new button color */
+            --glow-color-hover: rgba(49, 107, 255, 0.7);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFFFFF;
+            color: #1F2937;
+            overflow-x: hidden;
+        }
+        .gradient-heading {
+            background: linear-gradient(to right, #111827, #4A5568);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Interaktiver Hintergrund */
+        #spotlight {
+            background: radial-gradient(circle, rgba(49, 107, 255, 0.15) 0%, transparent 50%);
+            transition: transform 0.3s ease-out;
+            pointer-events: none;
+        }
+        #grid-pattern {
+            background-image: 
+                linear-gradient(to right, rgba(31, 41, 55, 0.05) 1px, transparent 1px), 
+                linear-gradient(to bottom, rgba(31, 41, 55, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+        }
+
+        /* Fade-in Animation */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Animierter Border für Service-Karten */
+        .service-card {
+            position: relative;
+            background-color: #F9FAFB;
+            border: 1px solid #E5E7EB;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 0.75rem;
+            border: 2px solid transparent;
+            background: linear-gradient(120deg, transparent, var(--glow-color), transparent) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            animation: rotate 4s linear infinite;
+        }
+        .service-card:hover::before { opacity: 1; }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        
+        /* Cursor-Glow für Buttons */
+        .cta-button { position: relative; overflow: hidden; }
+        .cta-button .glow {
+            position: absolute; width: 100px; height: 100px;
+            background: var(--glow-color-hover);
+            border-radius: 50%; filter: blur(20px);
+            opacity: 0; transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        .cta-button:hover .glow { opacity: 1; }
+
+        /* Scroll-Progress-Bar */
+        #progress-bar {
+            position: fixed; top: 0; left: 0; height: 4px;
+            background: #316bff;
+            width: 0%; z-index: 100;
+            transition: width 0.1s ease-out;
+        }
+        
+        /* Animierte Prozesslinie & Schritte */
+        #process-line {
+            transform: scaleY(0); transform-origin: top;
+            transition: transform 1s ease-in-out;
+        }
+        #process.is-visible #process-line {
+            transform: scaleY(1);
+        }
+        .process-step {
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        #process.is-visible .process-step:nth-child(1) { transition-delay: 200ms; }
+        #process.is-visible .process-step:nth-child(2) { transition-delay: 400ms; }
+        #process.is-visible .process-step:nth-child(3) { transition-delay: 600ms; }
+        #process.is-visible .process-step:nth-child(4) { transition-delay: 800ms; }
+        #process.is-visible .process-step {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* Scrolling Logo Bar */
+        .logo-scroller {
+            display: flex;
+            gap: 3rem; /* 48px */
+            animation: scroll 60s linear infinite;
+        }
+        .logo-item {
+            flex-shrink: 0;
+            filter: grayscale(1) opacity(0.7);
+        }
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }
+        @media (prefers-reduced-motion) {
+            .logo-scroller { animation: none; }
+        }
+
+        /* Staggered animation for service cards */
+        .service-card {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        #services.is-visible .service-card:nth-child(1) { transition-delay: 100ms; }
+        #services.is-visible .service-card:nth-child(2) { transition-delay: 200ms; }
+        #services.is-visible .service-card:nth-child(3) { transition-delay: 300ms; }
+        #services.is-visible .service-card:nth-child(4) { transition-delay: 400ms; }
+
+        #services.is-visible .service-card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body class="antialiased">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WRGL3PHN"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="progress-bar"></div>
     <div class="fixed inset-0 -z-10">
-        <div id="background-zoom"></div>
         <div id="grid-pattern" class="absolute inset-0"></div>
         <div id="spotlight" class="absolute h-[50rem] w-[50rem] rounded-full"></div>
     </div>
@@ -47,10 +192,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <nav class="flex justify-between items-center h-20 md:h-24">
                 <a href="#" aria-label="Startseite"><img src="logos/flowset_logo.png" alt="flowset Logo" class="h-7 md:h-10 w-auto"></a>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#services" class="text-gray-600 hover:text-black transition-colors duration-200">Leistungen</a>
+                    <a href="#services" class="text-gray-600 hover:text-black transition-colors duration-200">Systeme</a>
                     <a href="#process" class="text-gray-600 hover:text-black transition-colors duration-200">Ablauf</a>
                     <a href="#about" class="text-gray-600 hover:text-black transition-colors duration-200">Über uns</a>
-                    <a href="#" class="open-modal-button cta-button bg-[#316bff] text-white font-semibold px-5 py-2.5 rounded-lg hover:opacity-90 transition-opacity duration-200"><span class="relative z-10">Kontakt</span><span class="glow"></span></a>
+                    <a href="#" class="open-modal-button cta-button bg-[#316bff] text-white font-semibold px-5 py-2.5 rounded-lg hover:opacity-90 transition-opacity duration-200"><span class="relative z-10">Strategie-Session</span><span class="glow"></span></a>
                 </div>
                 <div class="md:hidden"><button id="mobile-menu-button" class="text-gray-800 p-2" aria-label="Menü öffnen"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,88H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg></button></div>
             </nav>
@@ -58,10 +203,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div id="mobile-menu" class="hidden md:hidden fixed top-0 left-0 w-full h-full bg-white/95 backdrop-blur-lg">
             <div class="flex justify-end p-6 h-20 md:h-24"><button id="mobile-menu-close-button" class="text-gray-800 p-2" aria-label="Menü schließen"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button></div>
             <div class="flex flex-col items-center justify-center space-y-10 h-[calc(100%-80px)]">
-                <a href="#services" class="mobile-nav-link text-gray-600 hover:text-black text-2xl">Leistungen</a>
+                <a href="#services" class="mobile-nav-link text-gray-600 hover:text-black text-2xl">Systeme</a>
                 <a href="#process" class="mobile-nav-link text-gray-600 hover:text-black text-2xl">Ablauf</a>
                 <a href="#about" class="mobile-nav-link text-gray-600 hover:text-black text-2xl">Über uns</a>
-                <a href="#" class="open-modal-button mobile-nav-link bg-[#316bff] text-white font-semibold px-8 py-3 rounded-lg text-xl mt-6">Kontakt</a>
+                <a href="#" class="open-modal-button mobile-nav-link bg-[#316bff] text-white font-semibold px-8 py-3 rounded-lg text-xl mt-6">Strategie-Session</a>
             </div>
         </div>
     </header>
@@ -69,13 +214,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <main>
         <section class="hero-section relative min-h-screen flex items-center justify-center text-center pt-20">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 fade-in-section"><span class="gradient-heading">Ihr Partner für KI und Digitalisierung.</span></h1>
-                <p class="max-w-3xl mx-auto text-lg md:text-xl text-gray-600 mb-10 fade-in-section" style="transition-delay: 150ms;">Wir helfen KMUs in Südtirol, mit maßgeschneiderten KI- und Digitalisierungslösungen Prozesse zu optimieren – für weniger Kosten, mehr Zeit und mehr Umsatz.</p>
-                <div class="fade-in-section" style="transition-delay: 300ms;"><a href="#" class="open-modal-button cta-button bg-[#316bff] text-white font-bold text-base md:text-lg px-8 py-4 rounded-lg hover:opacity-90 transition-opacity duration-200 inline-block shadow-lg shadow-blue-500/20"><span class="relative z-10">Kostenloses Potenzialgespräch</span><span class="glow"></span></a></div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 fade-in-section"><span class="gradient-heading">Mehr Kunden für Ihre Agentur. Auf Autopilot.</span></h1>
+                <p class="max-w-3xl mx-auto text-lg md:text-xl text-gray-600 mb-10 fade-in-section" style="transition-delay: 150ms;">Wir bauen maßgeschneiderte Cold Outreach Systeme, die Ihrer Marketing Agentur planbar und vollautomatisiert qualifizierte Neukunden bringen.</p>
+                <div class="fade-in-section" style="transition-delay: 300ms;"><a href="#" class="open-modal-button cta-button bg-[#316bff] text-white font-bold text-base md:text-lg px-8 py-4 rounded-lg hover:opacity-90 transition-opacity duration-200 inline-block shadow-lg shadow-blue-500/20"><span class="relative z-10">Kostenlose Strategie-Session</span><span class="glow"></span></a></div>
                 <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-y-8 gap-x-4 max-w-4xl mx-auto text-left fade-in-section" style="transition-delay: 450ms;">
-                    <div class="flex items-center space-x-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="text-green-500 flex-shrink-0" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg><p class="text-gray-700"><strong class="text-black">Mehr Zeit</strong> für strategische Aufgaben</p></div>
-                    <div class="flex items-center space-x-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="text-green-500 flex-shrink-0" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg><p class="text-gray-700"><strong class="text-black">Umsatz steigern</strong> durch Effizienz</p></div>
-                    <div class="flex items-center space-x-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="text-green-500 flex-shrink-0" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg><p class="text-gray-700"><strong class="text-black">Persönlicher Support</strong></p></div>
+                    <div class="flex items-center space-x-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="text-green-500 flex-shrink-0" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg><p class="text-gray-700"><strong class="text-black">Qualifizierte Leads</strong> im Kalender</p></div>
+                    <div class="flex items-center space-x-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="text-green-500 flex-shrink-0" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg><p class="text-gray-700"><strong class="text-black">Planbares Wachstum</strong> für Ihre Agentur</p></div>
+                    <div class="flex items-center space-x-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="text-green-500 flex-shrink-0" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg><p class="text-gray-700"><strong class="text-black">Mehr Zeit</strong> für Ihr Kerngeschäft</p></div>
                 </div>
             </div>
         </section>
@@ -83,7 +228,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <section class="py-16 sm:py-20 fade-in-section">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="max-w-4xl mx-auto text-center text-gray-700 text-lg bg-gray-50/70 p-8 rounded-xl border border-gray-200/80">
-                    <p>Als <strong class="text-black">KI Agentur in Südtirol</strong> unterstützen wir kleine und mittelständische Unternehmen dabei, ihre Prozesse durch Digitalisierung und Automatisierung effizienter zu gestalten. Von modernen CRM-Systemen über Lead-Recherche bis hin zu Recruiting und Chatbots entwickeln wir maßgeschneiderte Lösungen, die messbar Zeit sparen, Kosten senken und das Wachstum fördern. Mit unserer Erfahrung als <strong class="text-black">Digitalisierungsagentur in Südtirol</strong> verbinden wir neueste KI-Technologien mit praxisnaher Umsetzung – für Unternehmen, die den nächsten Schritt gehen wollen.</p>
+                    <p>Als <strong class="text-black">Partner für Marketing Agenturen</strong> entwickeln wir skalierbare Akquise-Systeme, die den gesamten Prozess von der Lead-Generierung bis zur Terminbuchung automatisieren. Statt manueller Kaltakquise und unvorhersehbaren Ergebnissen erhalten Sie einen konstanten Strom an qualifizierten Terminen in Ihrem Kalender – damit Sie sich auf das konzentrieren können, was Sie am besten können: exzellente Ergebnisse für Ihre Kunden.</p>
                 </div>
             </div>
         </section>
@@ -97,33 +242,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <img class="logo-item h-8 sm:h-10" src="logos/airtable.png" alt="Airtable">
                             <img class="logo-item h-8 sm:h-10" src="logos/chatgpt.svg" alt="ChatGPT">
                             <img class="logo-item h-8 sm:h-10" src="logos/claude.png" alt="Claude">
-                            <img class="logo-item h-8 sm:h-10" src="logos/cursor.png" alt="Cursor">
                             <img class="logo-item h-8 sm:h-10" src="logos/gemini.png" alt="Gemini">
-                            <img class="logo-item h-8 sm:h-10" src="logos/grok.png" alt="Grok">
                             <img class="logo-item h-8 sm:h-10" src="logos/highlevel.png" alt="HighLevel">
                             <img class="logo-item h-8 sm:h-10" src="logos/hubspot.webp" alt="HubSpot">
-                      
-                            <img class="logo-item h-8 sm:h-10" src="logos/lovable.svg" alt="Lovable">
+                            <img class="logo-item h-8 sm:h-10" src="logos/instantly.png" alt="Instantly">
+                            <img class="logo-item h-8 sm:h-10" src="logos/lemwarm.png" alt="Lemwarm">
+                            <img class="logo-item h-8 sm:h-10" src="logos/apollo.png" alt="Apollo.io">
                             <img class="logo-item h-8 sm:h-10" src="logos/make.png" alt="Make">
                             <img class="logo-item h-8 sm:h-10" src="logos/n8n.png" alt="n8n">
-                            <img class="logo-item h-8 sm:h-10" src="logos/pinecone.svg" alt="Pinecone">
-                            <img class="logo-item h-8 sm:h-10" src="logos/postgressql.png" alt="PostgreSQL">
                             <img class="logo-item h-8 sm:h-10" src="logos/supabase.png" alt="Supabase">
                             
                             <img class="logo-item h-8 sm:h-10" src="logos/airtable.png" alt="Airtable">
                             <img class="logo-item h-8 sm:h-10" src="logos/chatgpt.svg" alt="ChatGPT">
                             <img class="logo-item h-8 sm:h-10" src="logos/claude.png" alt="Claude">
-                            <img class="logo-item h-8 sm:h-10" src="logos/cursor.png" alt="Cursor">
                             <img class="logo-item h-8 sm:h-10" src="logos/gemini.png" alt="Gemini">
-                            <img class="logo-item h-8 sm:h-10" src="logos/grok.png" alt="Grok">
                             <img class="logo-item h-8 sm:h-10" src="logos/highlevel.png" alt="HighLevel">
                             <img class="logo-item h-8 sm:h-10" src="logos/hubspot.webp" alt="HubSpot">
-                     
-                            <img class="logo-item h-8 sm:h-10" src="logos/lovable.svg" alt="Lovable">
+                            <img class="logo-item h-8 sm:h-10" src="logos/instantly.png" alt="Instantly">
+                            <img class="logo-item h-8 sm:h-10" src="logos/lemwarm.png" alt="Lemwarm">
+                            <img class="logo-item h-8 sm:h-10" src="logos/apollo.png" alt="Apollo.io">
                             <img class="logo-item h-8 sm:h-10" src="logos/make.png" alt="Make">
                             <img class="logo-item h-8 sm:h-10" src="logos/n8n.png" alt="n8n">
-                            <img class="logo-item h-8 sm:h-10" src="logos/pinecone.svg" alt="Pinecone">
-                            <img class="logo-item h-8 sm:h-10" src="logos/postgressql.png" alt="PostgreSQL">
                             <img class="logo-item h-8 sm:h-10" src="logos/supabase.png" alt="Supabase">
                         </div>
                     </div>
@@ -134,28 +273,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <section id="services" class="py-16 sm:py-20 md:py-28 fade-in-section">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="text-center max-w-3xl mx-auto">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Unsere maßgeschneiderten KI-Lösungen</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Das Fundament Ihrer Akquise-Maschine</h2>
                 </div>
-                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
-                    <div class="service-card rounded-xl p-8 flex flex-col md:col-span-1 lg:col-span-2">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Maßgeschneidertes CRM mit smarten Automationen</h3>
-                        <p class="text-gray-600">Unser KI-unterstütztes CRM sammelt Leads automatisch aus verschiedenen Portalen und speichert sie zentral. Smarte Automationen sorgen dafür, dass kein Kontakt verloren geht, Follow-ups automatisch erfolgen und alle wichtigen Informationen immer griffbereit sind – für einen reibungslosen und effizienten Vertriebsprozess.</p>
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="service-card rounded-xl p-8 flex flex-col">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">All-in-One Outreach Hub</h3>
+                       <p class="text-gray-600">Wir errichten das kugelsichere technische Fundament für Ihre Kaltakquise. Von der Konfiguration Ihrer Domains über die Einrichtung aller wichtigen DNS-Einträge bis zum professionellen Aufwärmen der E-Mail-Konten – wir sorgen dafür, dass Ihre Nachrichten im Posteingang landen, nicht im Spam-Ordner.</p>
                     </div>
-                    <div class="service-card rounded-xl p-8 flex flex-col md:col-span-1 lg:col-span-2">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Automatisierte Lead-Generierung & -Recherche</h3>
-                        <p class="text-gray-600">Eingehende Leads werden automatisch recherchiert, mit relevanten Daten angereichert und vorqualifiziert. So landet nur das Beste im CRM – perfekt vorbereitet für Ihr Vertriebsteam, das sich direkt auf den Abschluss konzentrieren kann.</p>
+                    <div class="service-card rounded-xl p-8 flex flex-col">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Hyper-personalisierte Kampagnen</h3>
+                        <p class="text-gray-600">Mithilfe von KI recherchieren wir vollautomatisiert relevante Informationen über Ihre Zielkunden. So entstehen hochgradig personalisierte Nachrichten, die aus der Masse herausstechen und nachweislich höhere Antwortraten erzielen.</p>
                     </div>
-                    <div class="service-card rounded-xl p-8 flex flex-col md:col-span-2 lg:col-span-2">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">KI-unterstütztes Recruiting</h3>
-                        <p class="text-gray-600">Bewerbungen werden automatisch analysiert, bewertet und nach Ihren Kriterien sortiert. So stellen Sie sicher, dass starke Kandidaten nicht in der Masse untergehen – und der Auswahlprozess wird schneller, präziser und effizienter.</p>
-                    </div>
-                    <div class="service-card rounded-xl p-8 flex flex-col md:col-span-1 lg:col-start-2 lg:col-span-2">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Intelligente Support-Chatbots</h3>
-                        <p class="text-gray-600">Mit Zugriff auf Ihr gesamtes Unternehmenswissen beantworten Chatbots bis zu 80 % aller Standardanfragen sofort und leiten komplexe Fälle direkt an den richtigen Ansprechpartner weiter. Das entlastet Ihr Team und sorgt für schnellen, reibungslosen Kundenservice – rund um die Uhr.</p>
-                    </div>
-                    <div class="service-card rounded-xl p-8 flex flex-col md:col-span-1 lg:col-span-2">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">KI-gestützter Angebotsgenerator</h3>
-                        <p class="text-gray-600">In Sekunden zu einem fehlerfreien, personalisierten Angebot: Der Generator nutzt Produkt- und CRM-Daten, um den Erstellungsaufwand um bis zu 90 % zu reduzieren. Mehr Zeit fürs Wesentliche – Ihre Kunden.</p>
+                    <div class="service-card rounded-xl p-8 flex flex-col">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Automatisierte Terminbuchung</h3>
+                        <p class="text-gray-600">Unser System erkennt positive Antworten, führt intelligente Follow-up-Konversationen und bucht qualifizierte Termine direkt in Ihren Kalender. Sie müssen nur noch zum Gespräch erscheinen und den Abschluss machen.</p>
                     </div>
                 </div>
             </div>
@@ -165,14 +296,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <section id="process" class="py-16 sm:py-20 md:py-28 fade-in-section">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto"><h2 class="text-3xl md:text-4xl font-bold mb-4">In 4 Schritten zu mehr Effizienz</h2><p class="text-lg text-gray-600">Unser bewährter Prozess ist transparent und partnerschaftlich. Wir führen Sie sicher von der ersten Idee bis zur fertigen Lösung.</p></div>
+                <div class="text-center max-w-3xl mx-auto"><h2 class="text-3xl md:text-4xl font-bold mb-4">In 4 Schritten zu planbarem Wachstum</h2><p class="text-lg text-gray-600">Unser bewährter Prozess ist darauf ausgelegt, schnell und effizient ein Akquise-System zu implementieren, das für Sie arbeitet.</p></div>
                 <div class="mt-20 max-w-2xl mx-auto relative">
                     <div class="absolute left-5 top-5 h-full w-0.5 bg-gray-200 -z-10" id="process-line"></div>
                     <div class="space-y-16">
-                        <div class="relative flex items-start process-step"><div class="flex-shrink-0 w-10 h-10 bg-white border-2 border-blue-500/50 rounded-full flex items-center justify-center z-10 text-blue-500 font-bold">1</div><div class="ml-6"><h3 class="text-xl font-semibold text-gray-900">Analyse & Potenzial</h3><p class="mt-1 text-gray-600">In einem kostenlosen Erstgespräch verstehen wir Ihre Ziele und identifizieren die größten Automatisierungspotenziale.</p></div></div>
-                        <div class="relative flex items-start process-step"><div class="flex-shrink-0 w-10 h-10 bg-white border-2 border-purple-500/50 rounded-full flex items-center justify-center z-10 text-purple-500 font-bold">2</div><div class="ml-6"><h3 class="text-xl font-semibold text-gray-900">Konzept & Strategie</h3><p class="mt-1 text-gray-600">Wir entwickeln eine klare Strategie und einen detaillierten Plan, wie wir Ihre Prozesse messbar optimieren.</p></div></div>
-                        <div class="relative flex items-start process-step"><div class="flex-shrink-0 w-10 h-10 bg-white border-2 border-green-500/50 rounded-full flex items-center justify-center z-10 text-green-500 font-bold">3</div><div class="ml-6"><h3 class="text-xl font-semibold text-gray-900">Umsetzung & Integration</h3><p class="mt-1 text-gray-600">Unsere Experten setzen die Automatisierungslösung professionell, sicher und zügig für Sie um.</p></div></div>
-                        <div class="relative flex items-start process-step" id="last-step"><div class="flex-shrink-0 w-10 h-10 bg-white border-2 border-yellow-500/50 rounded-full flex items-center justify-center z-10 text-yellow-500 font-bold">4</div><div class="ml-6"><h3 class="text-xl font-semibold text-gray-900">Support & Optimierung</h3><p class="mt-1 text-gray-600">Auch nach der Implementierung stehen wir Ihnen zur Seite, um den reibungslosen Betrieb sicherzustellen.</p></div></div>
+                        <div class="relative flex items-start process-step"><div class="flex-shrink-0 w-10 h-10 bg-white border-2 border-blue-500/50 rounded-full flex items-center justify-center z-10 text-blue-500 font-bold">1</div><div class="ml-6"><h3 class="text-xl font-semibold text-gray-900">Strategie-Session</h3><p class="mt-1 text-gray-600">In einem kostenlosen Gespräch analysieren wir Ihre aktuelle Akquise und entwickeln eine maßgeschneiderte Strategie für Ihr neues System.</p></div></div>
+                        <div class="relative flex items-start process-step"><div class="flex-shrink-0 w-10 h-10 bg-white border-2 border-purple-500/50 rounded-full flex items-center justify-center z-10 text-purple-500 font-bold">2</div><div class="ml-6"><h3 class="text-xl font-semibold text-gray-900">System-Architektur</h3><p class="mt-1 text-gray-600">Wir entwerfen die technische Architektur Ihres Outreach Systems und wählen die perfekten Tools für maximale Effizienz und Skalierbarkeit aus.</p></div></div>
+                        <div class="relative flex items-start process-step"><div class="flex-shrink-0 w-10 h-10 bg-white border-2 border-green-500/50 rounded-full flex items-center justify-center z-10 text-green-500 font-bold">3</div><div class="ml-6"><h3 class="text-xl font-semibold text-gray-900">Implementierung & Launch</h3><p class="mt-1 text-gray-600">Unsere Experten bauen und integrieren Ihr System. Nach einem finalen Test starten wir die ersten Kampagnen und generieren Leads.</p></div></div>
+                        <div class="relative flex items-start process-step" id="last-step"><div class="flex-shrink-0 w-10 h-10 bg-white border-2 border-yellow-500/50 rounded-full flex items-center justify-center z-10 text-yellow-500 font-bold">4</div><div class="ml-6"><h3 class="text-xl font-semibold text-gray-900">Skalierung & Support</h3><p class="mt-1 text-gray-600">Wir überwachen die Performance, optimieren kontinuierlich und stellen sicher, dass Ihr System reibungslos läuft und mit Ihrer Agentur wächst.</p></div></div>
                     </div>
                 </div>
             </div>
@@ -183,8 +314,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <section id="about" class="py-16 sm:py-20 md:py-28 fade-in-section">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Über uns</h2>
-                    <p class="text-gray-600 text-lg">Wir sind flowset – ein Team aus KI- und Marketing-Experten, das Unternehmen dabei unterstützt, Prozesse zu automatisieren und nachhaltiges Wachstum zu erzielen. Mit jahrelanger Erfahrung in Software, Social Media Marketing und Vertrieb entwickeln wir maßgeschneiderte Lösungen, die Zeit sparen, Kosten senken und den Umsatz steigern.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Wir verstehen Agenturen</h2>
+                    <p class="text-gray-600 text-lg">Wir sind flowset – ein Team aus Entwicklern und Vertriebs-Experten, das sich darauf spezialisiert hat, die größte Herausforderung für Marketing Agenturen zu lösen: eine planbare und skalierbare Kundengewinnung. Wir haben selbst Agenturen aufgebaut und wissen, worauf es ankommt.</p>
                 </div>
                 
                 <div class="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-y-12 sm:gap-8 max-w-4xl mx-auto items-start">
@@ -227,12 +358,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <section id="contact" class="py-16 sm:py-20 md:py-28 bg-gray-50/70 fade-in-section">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                <div class="text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-4">Bereit, den Schalter umzulegen?</h2>
+    <h2 class="text-3xl md:text-4xl font-bold mb-4">Bereit, Ihre Akquise zu automatisieren?</h2>
     <p class="mx-auto max-w-2xl text-lg text-gray-600 mb-8">
-    Buchen Sie jetzt Ihr kostenloses und unverbindliches Erstgespräch. 
-    Lassen Sie uns gemeinsam herausfinden, wie viel ungenutztes Potenzial in Ihrem Unternehmen steckt.
+    Buchen Sie jetzt Ihre kostenlose und unverbindliche Strategie-Session. 
+    Lassen Sie uns gemeinsam herausfinden, wie ein Cold Outreach System das Wachstum Ihrer Agentur transformieren kann.
 </p>
-    <a href="#" class="open-modal-button cta-button bg-[#316bff] text-white font-bold text-lg px-8 py-4 rounded-lg hover:opacity-90 transition-opacity duration-200 inline-block shadow-lg shadow-blue-500/20"><span class="relative z-10">Gespräch vereinbaren</span><span class="glow"></span></a>
+    <a href="#" class="open-modal-button cta-button bg-[#316bff] text-white font-bold text-lg px-8 py-4 rounded-lg hover:opacity-90 transition-opacity duration-200 inline-block shadow-lg shadow-blue-500/20"><span class="relative z-10">Termin vereinbaren</span><span class="glow"></span></a>
 </div>
         </section>
     </main>
@@ -253,8 +384,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>
             </button>
             <div id="form-view">
-                <h3 class="text-2xl font-bold text-gray-900 mb-2">Kontakt aufnehmen</h3>
-                <p class="text-gray-600 mb-6">Füllen Sie das Formular aus und wir melden uns in Kürze bei Ihnen.</p>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">Kostenlose Strategie-Session</h3>
+                <p class="text-gray-600 mb-6">Füllen Sie das Formular aus, um Ihr unverbindliches Gespräch zu vereinbaren.</p>
                 <form id="contact-form">
                     <div class="mb-4">
                         <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Ihr Name</label>
@@ -265,11 +396,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <input type="email" id="email" name="email" required class="w-full bg-white border border-gray-300 rounded-lg p-3 text-black focus:ring-2 focus:ring-blue-500 focus:outline-none focus:border-blue-500 transition-colors">
                     </div>
                     <div class="mb-4">
-                        <label for="company" class="block text-sm font-medium text-gray-700 mb-2">Unternehmen (Optional)</label>
+                        <label for="company" class="block text-sm font-medium text-gray-700 mb-2">Ihre Agentur (Optional)</label>
                         <input type="text" id="company" name="company" class="w-full bg-white border border-gray-300 rounded-lg p-3 text-black focus:ring-2 focus:ring-blue-500 focus:outline-none focus:border-blue-500 transition-colors">
                     </div>
                     <div class="mb-6">
-                        <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Ihre Nachricht</label>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Wobei können wir helfen?</label>
                         <textarea id="message" name="message" rows="4" required class="w-full bg-white border border-gray-300 rounded-lg p-3 text-black focus:ring-2 focus:ring-blue-500 focus:outline-none focus:border-blue-500 transition-colors"></textarea>
                     </div>
                     <button type="submit" id="submit-button" class="w-full cta-button bg-[#316bff] text-white font-bold py-3 rounded-lg hover:opacity-90 transition-opacity duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
