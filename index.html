@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Cold Outreach Systems | Mehr Kunden für Ihre Marketing Agentur</title>
+    <title>KI-Telefonagent Systems | KI-Telefonassistenten für Ihr Unternehmen</title>
 <script type="text/javascript" src="//embeds.iubenda.com/widgets/94e52fbf-8d4a-4481-bd84-64be34457158.js"></script>
-    <meta name="description" content="Wir bauen skalierbare Cold Outreach Systeme, die Marketing Agenturen dabei helfen, planbar und automatisiert qualifizierte Kundenanfragen zu generieren.">
+    <meta name="description" content="Wir implementieren intelligente KI-Telefonagenten Systeme, die Ihre Kundenanfragen rund um die Uhr professionell bearbeiten und Termine automatisch buchen.">
 
     <link rel="icon" type="image/png" href="logos/icon.png">
 
@@ -33,7 +33,7 @@
     <style>
         /* Custom Styles & Tailwind Config */
         :root {
-            --glow-color: rgba(49, 107, 255, 0.5); /* Adjusted glow to match new button color */
+            --glow-color: rgba(49, 107, 255, 0.5);
             --glow-color-hover: rgba(49, 107, 255, 0.7);
         }
         body {
@@ -73,34 +73,15 @@
             transform: translateY(0);
         }
 
-        /* Animierter Border für Service-Karten */
+        /* Service-Karten */
         .service-card {
-            position: relative;
-            background-color: #F9FAFB;
+            background-color: #FFFFFF;
             border: 1px solid #E5E7EB;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: box-shadow 0.3s ease;
         }
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            border-radius: 0.75rem;
-            border: 2px solid transparent;
-            background: linear-gradient(120deg, transparent, var(--glow-color), transparent) border-box;
-            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: destination-out;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-            animation: rotate 4s linear infinite;
-        }
-        .service-card:hover::before { opacity: 1; }
-        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
         
         /* Cursor-Glow für Buttons */
         .cta-button { position: relative; overflow: hidden; }
@@ -138,6 +119,7 @@
         #process.is-visible .process-step:nth-child(2) { transition-delay: 400ms; }
         #process.is-visible .process-step:nth-child(3) { transition-delay: 600ms; }
         #process.is-visible .process-step:nth-child(4) { transition-delay: 800ms; }
+        #process.is-visible .process-step:nth-child(5) { transition-delay: 1000ms; }
         #process.is-visible .process-step {
             opacity: 1;
             transform: translateX(0);
@@ -146,8 +128,8 @@
         /* Scrolling Logo Bar */
         .logo-scroller {
             display: flex;
-            gap: 3rem; /* 48px */
-            animation: scroll 60s linear infinite;
+            gap: 3rem;
+            animation: scroll 20s linear infinite;
         }
         .logo-item {
             flex-shrink: 0;
@@ -170,7 +152,6 @@
         #services.is-visible .service-card:nth-child(1) { transition-delay: 100ms; }
         #services.is-visible .service-card:nth-child(2) { transition-delay: 200ms; }
         #services.is-visible .service-card:nth-child(3) { transition-delay: 300ms; }
-        #services.is-visible .service-card:nth-child(4) { transition-delay: 400ms; }
 
         #services.is-visible .service-card {
             opacity: 1;
@@ -192,7 +173,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <nav class="flex justify-between items-center h-20 md:h-24">
                 <a href="#" aria-label="Startseite"><img src="logos/flowset_logo.png" alt="flowset Logo" class="h-7 md:h-10 w-auto"></a>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#services" class="text-gray-600 hover:text-black transition-colors duration-200">Systeme</a>
+                    <a href="#services" class="text-gray-600 hover:text-black transition-colors duration-200">Lösungen</a>
                     <a href="#process" class="text-gray-600 hover:text-black transition-colors duration-200">Ablauf</a>
                     <a href="#about" class="text-gray-600 hover:text-black transition-colors duration-200">Über uns</a>
                     <a href="#" class="open-modal-button cta-button bg-[#316bff] text-white font-semibold px-5 py-2.5 rounded-lg hover:opacity-90 transition-opacity duration-200"><span class="relative z-10">Termin vereinbaren</span><span class="glow"></span></a>
@@ -203,7 +184,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div id="mobile-menu" class="hidden md:hidden fixed top-0 left-0 w-full h-full bg-white/95 backdrop-blur-lg">
             <div class="flex justify-end p-6 h-20 md:h-24"><button id="mobile-menu-close-button" class="text-gray-800 p-2" aria-label="Menü schließen"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button></div>
             <div class="flex flex-col items-center justify-center space-y-10 h-[calc(100%-80px)]">
-                <a href="#services" class="mobile-nav-link text-gray-600 hover:text-black text-2xl">Systeme</a>
+                <a href="#services" class="mobile-nav-link text-gray-600 hover:text-black text-2xl">Lösungen</a>
                 <a href="#process" class="mobile-nav-link text-gray-600 hover:text-black text-2xl">Ablauf</a>
                 <a href="#about" class="mobile-nav-link text-gray-600 hover:text-black text-2xl">Über uns</a>
                 <a href="#" class="open-modal-button mobile-nav-link bg-[#316bff] text-white font-semibold px-8 py-3 rounded-lg text-xl mt-6">Termin vereinbaren</a>
@@ -214,96 +195,171 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <main>
         <section class="hero-section relative min-h-screen flex items-center justify-center text-center pt-20">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 fade-in-section"><span class="gradient-heading">Mehr Kunden für Ihre Agentur. Auf Autopilot.</span></h1>
-                <p class="max-w-3xl mx-auto text-lg md:text-xl text-gray-600 mb-10 fade-in-section" style="transition-delay: 150ms;">Wir bauen maßgeschneiderte Cold Outreach Systeme, die Ihrer Marketing Agentur planbar und vollautomatisiert qualifizierte Neukunden bringen.</p>
-                <div class="fade-in-section" style="transition-delay: 300ms;"><a href="#" class="open-modal-button cta-button bg-[#316bff] text-white font-bold text-base md:text-lg px-8 py-4 rounded-lg hover:opacity-90 transition-opacity duration-200 inline-block shadow-lg shadow-blue-500/20"><span class="relative z-10">Kostenlosen Termin vereinbaren</span><span class="glow"></span></a></div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 fade-in-section"><span class="gradient-heading">KI-Telefonagenten für Ihr Unternehmen.</span></h1>
+                <p class="max-w-3xl mx-auto text-lg md:text-xl text-gray-600 mb-10 fade-in-section" style="transition-delay: 150ms;">Wir implementieren intelligente KI-Telefonagenten, die Ihre Kundenanfragen rund um die Uhr professionell bearbeiten – während Sie sich auf Ihr Kerngeschäft konzentrieren.</p>
+                <div class="fade-in-section" style="transition-delay: 300ms;"><a href="#" class="open-modal-button cta-button bg-[#316bff] text-white font-bold text-base md:text-lg px-8 py-4 rounded-lg hover:opacity-90 transition-opacity duration-200 inline-block shadow-lg shadow-blue-500/20"><span class="relative z-10">Kostenlosen Termin jetzt sichern</span><span class="glow"></span></a></div>
                 <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-y-8 gap-x-4 max-w-4xl mx-auto text-left fade-in-section" style="transition-delay: 450ms;">
-                    <div class="flex items-center space-x-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="text-green-500 flex-shrink-0" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg><p class="text-gray-700"><strong class="text-black">Qualifizierte Leads</strong> im Kalender</p></div>
-                    <div class="flex items-center space-x-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="text-green-500 flex-shrink-0" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg><p class="text-gray-700"><strong class="text-black">Planbares Wachstum</strong> für Ihre Agentur</p></div>
-                    <div class="flex items-center space-x-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="text-green-500 flex-shrink-0" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg><p class="text-gray-700"><strong class="text-black">Mehr Zeit</strong> für Ihr Kerngeschäft</p></div>
+                    <div class="flex items-center space-x-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="text-green-500 flex-shrink-0" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg><p class="text-gray-700"><strong class="text-black">24/7 Erreichbarkeit</strong> ohne zusätzliches Personal</p></div>
+                    <div class="flex items-center space-x-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="text-green-500 flex-shrink-0" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg><p class="text-gray-700"><strong class="text-black">Mehr Umsatz</strong> durch lückenlose Betreuung</p></div>
+                    <div class="flex items-center space-x-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="text-green-500 flex-shrink-0" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg><p class="text-gray-700"><strong class="text-black">100% DSGVO konform</strong></p></div>
                 </div>
             </div>
         </section>
 
-        <section class="py-16 sm:py-20 fade-in-section">
+
+        <section class="pt-16 pb-4 sm:pt-20 sm:pb-4 fade-in-section">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="max-w-4xl mx-auto text-center text-gray-700 text-lg bg-gray-50/70 p-8 rounded-xl border border-gray-200/80">
-                    <p>Als <strong class="text-black">Partner für Marketing Agenturen</strong> entwickeln wir skalierbare Akquise-Systeme, die den gesamten Prozess von der Lead-Generierung bis zur Terminbuchung automatisieren. Statt manueller Kaltakquise und unvorhersehbaren Ergebnissen erhalten Sie einen konstanten Strom an qualifizierten Terminen in Ihrem Kalender – damit Sie sich auf das konzentrieren können, was Sie am besten können: exzellente Ergebnisse für Ihre Kunden.</p>
+                    <p>Als <strong class="text-black">Partner für moderne Unternehmen</strong> entwickeln wir maßgeschneiderte KI-Telefonlösungen. Ihre Kunden erreichen nicht mehr eine Mailbox oder Warteschleife, sondern einen intelligenten KI-Assistenten, der Anfragen qualifiziert, Termine bucht und Informationen sammelt. Das Ergebnis: Höhere Conversion Rates, zufriedenere Kunden und massive Zeitersparnis für Ihr Team.</p>
                 </div>
             </div>
         </section>
 
-        <section class="py-12 fade-in-section">
-            <div class="bg-gray-50/70 py-8">
-                <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 class="text-center text-base font-semibold text-gray-500 tracking-wider uppercase">Die besten Tools für maximale Ergebnisse</h2>
-                    <div class="mt-8 relative w-full overflow-hidden">
+        <!-- Tech Stack Logos -->
+        <section class="py-2 fade-in-section">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-center">
+                    <div class="relative w-[512px] overflow-hidden">
+                        <!-- Fade Overlays -->
+                        <div class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white via-white/50 to-transparent z-10 pointer-events-none"></div>
+                        <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white via-white/50 to-transparent z-10 pointer-events-none"></div>
+
                         <div class="logo-scroller">
-                            <img class="logo-item h-8 sm:h-10" src="logos/airtable.png" alt="Airtable">
-                            <img class="logo-item h-8 sm:h-10" src="logos/chatgpt.svg" alt="ChatGPT">
-                            <img class="logo-item h-8 sm:h-10" src="logos/claude.png" alt="Claude">
-                            <img class="logo-item h-8 sm:h-10" src="logos/gemini.png" alt="Gemini">
-                            <img class="logo-item h-8 sm:h-10" src="logos/highlevel.png" alt="HighLevel">
-                            <img class="logo-item h-8 sm:h-10" src="logos/hubspot.webp" alt="HubSpot">
-                            <img class="logo-item h-8 sm:h-10" src="logos/instantly.png" alt="Instantly">
-                            <img class="logo-item h-8 sm:h-10" src="logos/lemwarm.png" alt="Lemwarm">
-                            <img class="logo-item h-8 sm:h-10" src="logos/apollo.png" alt="Apollo.io">
-                            <img class="logo-item h-8 sm:h-10" src="logos/make.png" alt="Make">
-                            <img class="logo-item h-8 sm:h-10" src="logos/n8n.png" alt="n8n">
-                            <img class="logo-item h-8 sm:h-10" src="logos/supabase.png" alt="Supabase">
-                            
-                            <img class="logo-item h-8 sm:h-10" src="logos/airtable.png" alt="Airtable">
-                            <img class="logo-item h-8 sm:h-10" src="logos/chatgpt.svg" alt="ChatGPT">
-                            <img class="logo-item h-8 sm:h-10" src="logos/claude.png" alt="Claude">
-                            <img class="logo-item h-8 sm:h-10" src="logos/gemini.png" alt="Gemini">
-                            <img class="logo-item h-8 sm:h-10" src="logos/highlevel.png" alt="HighLevel">
-                            <img class="logo-item h-8 sm:h-10" src="logos/hubspot.webp" alt="HubSpot">
-                            <img class="logo-item h-8 sm:h-10" src="logos/instantly.png" alt="Instantly">
-                            <img class="logo-item h-8 sm:h-10" src="logos/lemwarm.png" alt="Lemwarm">
-                            <img class="logo-item h-8 sm:h-10" src="logos/apollo.png" alt="Apollo.io">
-                            <img class="logo-item h-8 sm:h-10" src="logos/make.png" alt="Make">
-                            <img class="logo-item h-8 sm:h-10" src="logos/n8n.png" alt="n8n">
-                            <img class="logo-item h-8 sm:h-10" src="logos/supabase.png" alt="Supabase">
+                            <img class="logo-item h-14 sm:h-16" src="logos/chatgpt.svg" alt="OpenAI">
+                            <img class="logo-item h-14 sm:h-16" src="logos/claude.png" alt="Claude">
+                            <img class="logo-item h-14 sm:h-16" src="logos/gemini.png" alt="Gemini">
+                            <img class="logo-item h-14 sm:h-16" src="logos/make.png" alt="Make">
+                            <img class="logo-item h-14 sm:h-16" src="logos/n8n.png" alt="n8n">
+                            <img class="logo-item h-14 sm:h-16" src="logos/hubspot.webp" alt="HubSpot">
+                            <img class="logo-item h-14 sm:h-16" src="logos/airtable.png" alt="Airtable">
+                            <img class="logo-item h-14 sm:h-16" src="logos/supabase.png" alt="Supabase">
+
+                            <img class="logo-item h-14 sm:h-16" src="logos/chatgpt.svg" alt="OpenAI">
+                            <img class="logo-item h-14 sm:h-16" src="logos/claude.png" alt="Claude">
+                            <img class="logo-item h-14 sm:h-16" src="logos/gemini.png" alt="Gemini">
+                            <img class="logo-item h-14 sm:h-16" src="logos/make.png" alt="Make">
+                            <img class="logo-item h-14 sm:h-16" src="logos/n8n.png" alt="n8n">
+                            <img class="logo-item h-14 sm:h-16" src="logos/hubspot.webp" alt="HubSpot">
+                            <img class="logo-item h-14 sm:h-16" src="logos/airtable.png" alt="Airtable">
+                            <img class="logo-item h-14 sm:h-16" src="logos/supabase.png" alt="Supabase">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <section class="pt-40 pb-12 sm:pt-48 sm:pb-16 fade-in-section">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Messbare Vorteile für Ihr Unternehmen</h2>
+                    <p class="text-lg text-gray-600">Unsere KI-Telefonagenten liefern nicht nur Qualität, sondern auch nachweisbare Ergebnisse.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                        <div class="text-4xl font-bold text-[#316bff] mb-2">40%</div>
+                        <p class="text-gray-600 mb-4">Kostensenkung durch Automatisierung</p>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mb-2">
+                            <div class="bg-[#316bff] h-2 rounded-full" style="width: 40%"></div>
+                        </div>
+                    </div>
+                    <div class="text-center bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                        <div class="text-4xl font-bold text-[#316bff] mb-2">25%</div>
+                        <p class="text-gray-600 mb-4">Höhere Umsätze durch bessere Lead-Konvertierung</p>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mb-2">
+                            <div class="bg-[#316bff] h-2 rounded-full" style="width: 25%"></div>
+                        </div>
+                    </div>
+                    <div class="text-center bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                        <div class="text-4xl font-bold text-[#316bff] mb-2">24/7</div>
+                        <p class="text-gray-600 mb-4">Erreichbarkeit ohne zusätzliches Personal</p>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mb-2">
+                            <div class="bg-[#316bff] h-2 rounded-full" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <a href="#" class="open-modal-button cta-button bg-[#316bff] text-white font-bold text-lg px-8 py-4 rounded-lg hover:opacity-90 transition-opacity duration-200 inline-block shadow-lg shadow-blue-500/20"><span class="relative z-10">Jetzt kostenloses Erstgespräch sichern</span><span class="glow"></span></a>
+                </div>
+            </div>
+        </section>
+
         <section id="services" class="py-16 sm:py-20 md:py-28 fade-in-section">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="text-center max-w-3xl mx-auto">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Das Fundament Ihrer Akquise-Maschine</h2>
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Ihr KI-Telefonassistent – Die komplette Lösung</h2>
+                    <p class="text-lg text-gray-600">Intelligente Telefonie-Automatisierung, die Ihr Unternehmen transformiert</p>
                 </div>
-                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="service-card rounded-xl p-8 flex flex-col">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Maximale Zustellbarkeit &amp; Skalierung</h3>
-                       <p class="text-gray-600">Wir errichten das kugelsichere technische Fundament für Ihre Kaltakquise. Von der Konfiguration Ihrer Domains über die Einrichtung aller wichtigen DNS-Einträge bis zum professionellen Aufwärmen der E-Mail-Konten – wir sorgen dafür, dass Ihre Nachrichten im Posteingang landen, nicht im Spam-Ordner.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="service-card rounded-xl p-6 flex flex-col">
+                        <div class="mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="text-[#316bff]" viewBox="0 0 256 256"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46Z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Intelligente Anrufbearbeitung</h3>
+                        <p class="text-gray-600">Unser KI-Telefonagent System versteht natürliche Sprache, beantwortet häufige Fragen und leitet komplexe Anfragen gezielt an die richtige Person weiter. Dabei klingt es so natürlich, dass Ihre Anrufer den Unterschied kaum bemerken.</p>
                     </div>
-                    <div class="service-card rounded-xl p-8 flex flex-col">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Hyper-personalisierte Kampagnen</h3>
-                        <p class="text-gray-600">Mithilfe von KI recherchieren wir vollautomatisiert relevante Informationen über Ihre Zielkunden. So entstehen hochgradig personalisierte Nachrichten, die aus der Masse herausstechen und nachweislich höhere Antwortraten erzielen.</p>
+                    <div class="service-card rounded-xl p-6 flex flex-col">
+                        <div class="mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="text-[#316bff]" viewBox="0 0 256 256"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-38.34-85.66a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L116,164.69l42.34-42.35A8,8,0,0,1,169.66,122.34Z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Automatische Terminbuchung</h3>
+                        <p class="text-gray-600">Der KI-Assistent prüft Ihre Verfügbarkeit in Echtzeit, schlägt passende Termine vor und trägt diese direkt in Ihren Kalender ein – inklusive automatischer Bestätigungs-E-Mail an den Kunden.</p>
                     </div>
-                    <div class="service-card rounded-xl p-8 flex flex-col">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Automatisierte Terminbuchung</h3>
-                        <p class="text-gray-600">Unser System erkennt positive Antworten, führt intelligente Follow-up-Konversationen und bucht qualifizierte Termine direkt in Ihren Kalender. Sie müssen nur noch zum Gespräch erscheinen und den Abschluss machen.</p>
+                    <div class="service-card rounded-xl p-6 flex flex-col">
+                        <div class="mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="text-[#316bff]" viewBox="0 0 256 256"><path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Lead-Qualifizierung & CRM-Integration</h3>
+                        <p class="text-gray-600">Jeder Anruf wird dokumentiert, wichtige Informationen werden extrahiert und automatisch in Ihr CRM-System übertragen. So haben Sie alle Kundendaten strukturiert an einem Ort.</p>
                     </div>
                 </div>
             </div>
         </section>
-        
+
+        <section class="py-16 sm:py-20 fade-in-section">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Anwendungsfälle für KI-Telefonagenten</h2>
+                    <p class="text-lg text-gray-600">Entdecken Sie, wie unsere KI-Telefonassistenten in verschiedenen Bereichen Ihres Unternehmens eingesetzt werden können.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="text-[#316bff] mr-3" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                            <h3 class="text-xl font-semibold text-gray-900">Kundenservice</h3>
+                        </div>
+                        <p class="text-gray-600">Beantworten Sie häufige Fragen rund um die Uhr und leiten Sie komplexe Anfragen gezielt weiter – ohne Warteschlangen.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="text-[#316bff] mr-3" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                            <h3 class="text-xl font-semibold text-gray-900">Lead-Generierung</h3>
+                        </div>
+                        <p class="text-gray-600">Qualifizieren Sie Interessenten automatisch, sammeln Sie wichtige Informationen und vereinbaren Sie Termine direkt.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="text-[#316bff] mr-3" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+                            <h3 class="text-xl font-semibold text-gray-900">Terminbuchung</h3>
+                        </div>
+                        <p class="text-gray-600">Prüfen Sie Verfügbarkeiten in Echtzeit und tragen Sie Termine automatisch in Ihren Kalender ein.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent my-8"></div>
 
         <section id="process" class="py-16 sm:py-20 md:py-28 fade-in-section">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto"><h2 class="text-3xl md:text-4xl font-bold mb-4">In 4 Schritten zu planbarem Wachstum</h2><p class="text-lg text-gray-600">Unser bewährter Prozess ist darauf ausgelegt, schnell und effizient ein Akquise-System zu implementieren, das für Sie arbeitet.</p></div>
+                <div class="text-center max-w-3xl mx-auto"><h2 class="text-3xl md:text-4xl font-bold mb-4">Zusammenarbeit in 5 Schritten</h2><p class="text-lg text-gray-600">Unser bewährter Prozess führt Sie sicher zu Ihrem maßgeschneiderten KI-Telefonagenten Assistenten.</p></div>
                 <div class="mt-20 max-w-2xl mx-auto relative">
                     <div class="absolute left-5 top-5 h-full w-0.5 bg-gray-200 -z-10" id="process-line"></div>
                     <div class="space-y-16">
-                        <div class="relative flex items-start process-step"><div class="flex-shrink-0 w-10 h-10 bg-white border-2 border-blue-500/50 rounded-full flex items-center justify-center z-10 text-blue-500 font-bold">1</div><div class="ml-6"><h3 class="text-xl font-semibold text-gray-900">Termin vereinbaren</h3><p class="mt-1 text-gray-600">In einem kostenlosen Gespräch analysieren wir Ihre aktuelle Akquise und entwickeln eine maßgeschneiderte Strategie für Ihr neues System.</p></div></div>
-                        <div class="relative flex items-start process-step"><div class="flex-shrink-0 w-10 h-10 bg-white border-2 border-purple-500/50 rounded-full flex items-center justify-center z-10 text-purple-500 font-bold">2</div><div class="ml-6"><h3 class="text-xl font-semibold text-gray-900">System-Architektur</h3><p class="mt-1 text-gray-600">Wir entwerfen die technische Architektur Ihres Outreach Systems und wählen die perfekten Tools für maximale Effizienz und Skalierbarkeit aus.</p></div></div>
-                        <div class="relative flex items-start process-step"><div class="flex-shrink-0 w-10 h-10 bg-white border-2 border-green-500/50 rounded-full flex items-center justify-center z-10 text-green-500 font-bold">3</div><div class="ml-6"><h3 class="text-xl font-semibold text-gray-900">Implementierung & Launch</h3><p class="mt-1 text-gray-600">Unsere Experten bauen und integrieren Ihr System. Nach einem finalen Test starten wir die ersten Kampagnen und generieren Leads.</p></div></div>
-                        <div class="relative flex items-start process-step" id="last-step"><div class="flex-shrink-0 w-10 h-10 bg-white border-2 border-yellow-500/50 rounded-full flex items-center justify-center z-10 text-yellow-500 font-bold">4</div><div class="ml-6"><h3 class="text-xl font-semibold text-gray-900">Skalierung & Support</h3><p class="mt-1 text-gray-600">Wir überwachen die Performance, optimieren kontinuierlich und stellen sicher, dass Ihr System reibungslos läuft und mit Ihrer Agentur wächst.</p></div></div>
+                        <div class="relative flex items-start process-step"><div class="flex-shrink-0 w-10 h-10 bg-white border-2 border-blue-500/50 rounded-full flex items-center justify-center z-10 text-blue-500 font-bold">1</div><div class="ml-6"><h3 class="text-xl font-semibold text-gray-900">Kostenloses Erstgespräch</h3><p class="mt-1 text-gray-600">Wir starten mit einem unverbindlichen Gespräch, um Ihre Ausgangssituation zu verstehen und erste Potenziale für KI-Telefonagent zu identifizieren.</p></div></div>
+                        <div class="relative flex items-start process-step"><div class="flex-shrink-0 w-10 h-10 bg-white border-2 border-purple-500/50 rounded-full flex items-center justify-center z-10 text-purple-500 font-bold">2</div><div class="ml-6"><h3 class="text-xl font-semibold text-gray-900">Bedarfsanalyse</h3><p class="mt-1 text-gray-600">In einem persönlichen Gespräch analysieren wir Ihre Telefonie-Prozesse und definieren gemeinsam, welche Aufgaben Ihr KI-Assistent übernehmen soll.</p></div></div>
+                        <div class="relative flex items-start process-step"><div class="flex-shrink-0 w-10 h-10 bg-white border-2 border-green-500/50 rounded-full flex items-center justify-center z-10 text-green-500 font-bold">3</div><div class="ml-6"><h3 class="text-xl font-semibold text-gray-900">Individuelle Konfiguration</h3><p class="mt-1 text-gray-600">Wir trainieren Ihren KI-Assistenten mit Ihrem Wissen, Ihren Produkten und Ihrer Unternehmenssprache. Dazu entwickeln wir maßgeschneiderte Gesprächsabläufe für typische Anfragen.</p></div></div>
+                        <div class="relative flex items-start process-step"><div class="flex-shrink-0 w-10 h-10 bg-white border-2 border-yellow-500/50 rounded-full flex items-center justify-center z-10 text-yellow-500 font-bold">4</div><div class="ml-6"><h3 class="text-xl font-semibold text-gray-900">Integration & Testing</h3><p class="mt-1 text-gray-600">Wir verbinden das System mit Ihrer bestehenden Telefonie, Ihrem Kalender und Ihrem CRM. Nach ausführlichen Tests starten wir zunächst mit einer Pilotphase.</p></div></div>
+                        <div class="relative flex items-start process-step" id="last-step"><div class="flex-shrink-0 w-10 h-10 bg-white border-2 border-red-500/50 rounded-full flex items-center justify-center z-10 text-red-500 font-bold">5</div><div class="ml-6"><h3 class="text-xl font-semibold text-gray-900">Live-Betrieb & Optimierung</h3><p class="mt-1 text-gray-600">Nach dem Go-Live überwachen wir die Performance kontinuierlich, analysieren Gespräche und optimieren die KI basierend auf echten Kundendialogen.</p></div></div>
                     </div>
                 </div>
             </div>
@@ -314,8 +370,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <section id="about" class="py-16 sm:py-20 md:py-28 fade-in-section">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Wir verstehen Agenturen</h2>
-                    <p class="text-gray-600 text-lg">Wir sind flowset – ein Team aus Entwicklern und Vertriebs-Experten, das sich darauf spezialisiert hat, die größte Herausforderung für Marketing Agenturen zu lösen: eine planbare und skalierbare Kundengewinnung. Wir haben selbst Agenturen aufgebaut und wissen, worauf es ankommt.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Das Flowset Team</h2>
+                    <p class="text-gray-600 text-lg mb-8">Wir sind flowset: Ein Team aus KI-Entwicklern und Kommunikations-Experten, das sich auf die Implementierung von KI-Telefonagenten spezialisiert hat. Wir haben erkannt, dass verpasste Anrufe und lange Warteschlangen massive Umsatzverluste bedeuten. Unsere intelligenten Telefonassistenten revolutionieren Ihre Erreichbarkeit und steigern nachweislich Ihre Verkäufe.</p>
                 </div>
                 
                 <div class="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-y-12 sm:gap-8 max-w-4xl mx-auto items-start">
@@ -355,25 +411,131 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </section>
 
+        <!-- Datenschutz-Bereich -->
+        <section id="privacy" class="py-16 sm:py-20 bg-gray-50/70 fade-in-section">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Datenschutz & Sicherheit</h2>
+                        <p class="text-lg text-gray-600">Ihre Daten sind bei uns in sicheren Händen</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                            <div class="flex items-start mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="text-[#316bff] mr-4 flex-shrink-0" viewBox="0 0 256 256"><path d="M208,80H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80ZM96,56a32,32,0,0,1,64,0V80H96ZM208,208H48V96H208V208Zm-68-56a12,12,0,1,1-12-12A12,12,0,0,1,140,152Z"></path></svg>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-900 mb-2">DSGVO-Konformität</h3>
+                                    <p class="text-gray-600">Alle unsere KI-Telefonagenten entsprechen zu 100% den europäischen Datenschutzrichtlinien (DSGVO). Ihre Kundendaten werden ausschließlich auf europäischen Servern verarbeitet und gespeichert.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                            <div class="flex items-start mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="text-[#316bff] mr-4 flex-shrink-0" viewBox="0 0 256 256"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48Zm-96,85.15L52.57,64H203.43ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82Z"></path></svg>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Verschlüsselte Kommunikation</h3>
+                                    <p class="text-gray-600">Alle Telefongespräche und Datenübertragungen sind durch modernste Verschlüsselungstechnologien geschützt. Ihre sensiblen Informationen bleiben jederzeit vertraulich.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                            <div class="flex items-start mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="text-[#316bff] mr-4 flex-shrink-0" viewBox="0 0 256 256"><path d="M208,80H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80Zm-80,84a12,12,0,1,1,12-12A12,12,0,0,1,128,164Zm32-84H96V56a32,32,0,0,1,64,0Z"></path></svg>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Sichere Integrationen</h3>
+                                    <p class="text-gray-600">Die Verbindung zu Ihren Systemen (CRM, Kalender, etc.) erfolgt über sichere, verschlüsselte Schnittstellen. Wir haben nur Zugriff auf die für den Betrieb notwendigen Daten.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                            <div class="flex items-start mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="text-[#316bff] mr-4 flex-shrink-0" viewBox="0 0 256 256"><path d="M230.93,220a8,8,0,0,1-6.93,4H32a8,8,0,0,1-6.92-12l96-168a8,8,0,0,1,13.84,0l96,168A8,8,0,0,1,230.93,220Z"></path><path d="M120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm8,24a12,12,0,1,0,12,12A12,12,0,0,0,128,168Z" fill="#fff"></path></svg>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Transparente Datenverarbeitung</h3>
+                                    <p class="text-gray-600">Sie behalten jederzeit die volle Kontrolle über Ihre Daten. Auf Wunsch können Sie alle gespeicherten Informationen einsehen, exportieren oder löschen lassen.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="contact" class="py-16 sm:py-20 md:py-28 bg-gray-50/70 fade-in-section">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                <div class="text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-4">Bereit, Ihre Akquise zu automatisieren?</h2>
-    <p class="mx-auto max-w-2xl text-lg text-gray-600 mb-8">
-    Buchen Sie jetzt Ihre kostenlose und unverbindliche Termin vereinbaren. 
-    Lassen Sie uns gemeinsam herausfinden, wie ein Cold Outreach System das Wachstum Ihrer Agentur transformieren kann.
-</p>
-    <a href="#" class="open-modal-button cta-button bg-[#316bff] text-white font-bold text-lg px-8 py-4 rounded-lg hover:opacity-90 transition-opacity duration-200 inline-block shadow-lg shadow-blue-500/20"><span class="relative z-10">Termin vereinbaren</span><span class="glow"></span></a>
-</div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Bereit für Ihren KI-Telefonassistenten?</h2>
+                    <p class="mx-auto max-w-2xl text-lg text-gray-600 mb-8">
+                    Buchen Sie jetzt Ihr kostenloses Erstgespräch. Wir zeigen Ihnen, wie KI-Telefonagent Ihre Telefonie transformieren und Ihnen dabei hilft, mehr Kunden zu gewinnen – ganz ohne zusätzliches Personal.
+                    </p>
+                    <a href="#" class="open-modal-button cta-button bg-[#316bff] text-white font-bold text-lg px-8 py-4 rounded-lg hover:opacity-90 transition-opacity duration-200 inline-block shadow-lg shadow-blue-500/20"><span class="relative z-10">Termin jetzt vereinbaren</span><span class="glow"></span></a>
+                </div>
         </section>
+
+        <section id="faq" class="py-16 sm:py-20 bg-white fade-in-section">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Häufig gestellte Fragen</h2>
+                    <p class="text-lg text-gray-600">Hier finden Sie Antworten auf die wichtigsten Fragen zu unseren KI-Telefonagent Lösungen.</p>
+                </div>
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <details class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <summary class="cursor-pointer font-semibold text-gray-900 text-lg">Was ist KI-Telefonagent?</summary>
+                        <p class="mt-4 text-gray-600">KI-Telefonagent bezeichnet künstliche Intelligenz, die menschliche Sprache versteht und generiert. Unsere Systeme ermöglichen natürliche Gespräche über Telefon, um Anfragen zu bearbeiten und Aufgaben zu automatisieren.</p>
+                    </details>
+                    <details class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <summary class="cursor-pointer font-semibold text-gray-900 text-lg">Wie lange dauert die Implementierung?</summary>
+                        <p class="mt-4 text-gray-600">Die Einrichtung dauert typischerweise 2-4 Wochen, abhängig von der Komplexität Ihrer Anforderungen. Wir beginnen mit einer kostenlosen Analyse und Pilotphase.</p>
+                    </details>
+                    <details class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <summary class="cursor-pointer font-semibold text-gray-900 text-lg">Ist das System DSGVO-konform?</summary>
+                        <p class="mt-4 text-gray-600">Ja, unsere Lösungen sind vollständig DSGVO-konform. Daten werden sicher verarbeitet und nur mit Ihrer Zustimmung gespeichert. Wir verwenden europäische Server für maximale Datenschutzstandards.</p>
+                    </details>
+                    <details class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <summary class="cursor-pointer font-semibold text-gray-900 text-lg">Welche Integrationen sind möglich?</summary>
+                        <p class="mt-4 text-gray-600">Wir integrieren nahtlos mit CRM-Systemen wie HubSpot, Salesforce, Kalendern wie Google Calendar und Cloud-Plattformen wie AWS oder Microsoft Azure.</p>
+                    </details>
+                    <details class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <summary class="cursor-pointer font-semibold text-gray-900 text-lg">Was kostet eine KI-Telefonagent Lösung?</summary>
+                        <p class="mt-4 text-gray-600">Die Kosten variieren je nach Umfang. Kontaktieren Sie uns für ein individuelles Angebot. Wir bieten transparente Preise ohne versteckte Gebühren.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <footer class="border-t border-gray-200 py-8">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500">
-            <p>&copy; 2025 flowset. Alle Rechte vorbehalten.</p>
-            <div class="mt-4 space-x-6">
-                <a href="https://www.iubenda.com/privacy-policy/94267556" class="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe " title="Datenschutzerklärung ">Datenschutzerklärung</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
-                <a href="https://www.iubenda.com/privacy-policy/94267556/cookie-policy" class="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe " title="Cookie-Richtlinie ">Cookie-Richtlinie</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+    <footer class="border-t border-gray-200 py-12 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <img src="logos/flowset_logo.png" alt="flowset Logo" class="h-8 w-auto mb-4">
+                    <p class="text-gray-600 text-sm">Intelligente KI-Telefonagent Lösungen für moderne Unternehmen.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-4">Navigation</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#services" class="text-gray-600 hover:text-black transition-colors">Lösungen</a></li>
+                        <li><a href="#process" class="text-gray-600 hover:text-black transition-colors">Ablauf</a></li>
+                        <li><a href="#about" class="text-gray-600 hover:text-black transition-colors">Über uns</a></li>
+                        <li><a href="#faq" class="text-gray-600 hover:text-black transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-4">Rechtliches</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://www.iubenda.com/privacy-policy/94267556" target="_blank" class="text-gray-600 hover:text-black transition-colors">Datenschutzerklärung</a></li>
+                        <li><a href="https://www.iubenda.com/privacy-policy/94267556/cookie-policy" target="_blank" class="text-gray-600 hover:text-black transition-colors">Cookie-Richtlinie</a></li>
+                        <li><a href="#privacy" class="text-gray-600 hover:text-black transition-colors">Datenschutz & Sicherheit</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 pt-8 text-center">
+                <p class="text-gray-500 text-sm">&copy; 2025 flowset. Alle Rechte vorbehalten.</p>
             </div>
         </div>
     </footer>
@@ -396,7 +558,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <input type="email" id="email" name="email" required class="w-full bg-white border border-gray-300 rounded-lg p-3 text-black focus:ring-2 focus:ring-blue-500 focus:outline-none focus:border-blue-500 transition-colors">
                     </div>
                     <div class="mb-4">
-                        <label for="company" class="block text-sm font-medium text-gray-700 mb-2">Ihre Agentur (Optional)</label>
+                        <label for="company" class="block text-sm font-medium text-gray-700 mb-2">Ihr Unternehmen (Optional)</label>
                         <input type="text" id="company" name="company" class="w-full bg-white border border-gray-300 rounded-lg p-3 text-black focus:ring-2 focus:ring-blue-500 focus:outline-none focus:border-blue-500 transition-colors">
                     </div>
                     <div class="mb-6">
@@ -444,7 +606,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 });
             });
 
-            // --- START: MOBILE MENU FIX ---
+            // Mobile Menu
             const menuButton = document.getElementById('mobile-menu-button');
             const closeMenuButton = document.getElementById('mobile-menu-close-button');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -452,22 +614,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             const openMenu = () => {
                 mobileMenu.classList.remove('hidden');
-                document.body.style.overflow = 'hidden'; // Prevent body scroll
+                document.body.style.overflow = 'hidden';
             };
             
             const closeMenu = () => {
                 mobileMenu.classList.add('hidden');
-                document.body.style.overflow = ''; // Re-enable body scroll
+                document.body.style.overflow = '';
             };
 
             menuButton.addEventListener('click', openMenu);
             closeMenuButton.addEventListener('click', closeMenu);
 
-            // Close menu when a nav link is clicked (for both anchor links and modal button)
             mobileNavLinks.forEach(link => {
                 link.addEventListener('click', closeMenu);
             });
-            // --- END: MOBILE MENU FIX ---
 
             // Header Scroll Effect
             const header = document.getElementById('header');
@@ -504,7 +664,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 const circleCenter = lastStep.offsetTop + lastStep.querySelector('div').offsetHeight / 2;
                 processLine.style.height = `${circleCenter}px`;
             }
-
 
             // Contact Form Modal Logic
             const contactModal = document.getElementById('contact-modal');
