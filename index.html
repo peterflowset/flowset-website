@@ -591,6 +591,10 @@ D                    </details>
                         <label for="company" class="block text-sm font-medium text-gray-700 mb-2">Ihr Unternehmen (Optional)</label>
                         <input type="text" id="company" name="company" class="w-full bg-white border border-gray-300 rounded-lg p-3 text-black focus:ring-2 focus:ring-blue-500 focus:outline-none focus:border-blue-500 transition-colors">
                     </div>
+                    <div class="mb-4">
+                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Telefonnummer</label>
+                        <input type="tel" id="phone" name="phone" required class="w-full bg-white border border-gray-300 rounded-lg p-3 text-black focus:ring-2 focus:ring-blue-500 focus:outline-none focus:border-blue-500 transition-colors">
+                    </div>
                     <div class="mb-6">
                         <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Wobei können wir helfen?</label>
                         <textarea id="message" name="message" rows="4" required class="w-full bg-white border border-gray-300 rounded-lg p-3 text-black focus:ring-2 focus:ring-blue-500 focus:outline-none focus:border-blue-500 transition-colors"></textarea>
@@ -756,6 +760,7 @@ D                    </details>
                 const formData = {
                     name: contactForm.name.value,
                     email: contactForm.email.value,
+                    phone: contactForm.phone.value,
                     company: contactForm.company.value,
                     message: contactForm.message.value,
                 };

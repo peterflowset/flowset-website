@@ -154,6 +154,7 @@ contactForm.addEventListener('submit', async (e) => {
     const formData = {
         name: contactForm.name.value,
         email: contactForm.email.value,
+        phone: contactForm.phone.value,
         company: contactForm.company.value,
         message: contactForm.message.value,
     };
